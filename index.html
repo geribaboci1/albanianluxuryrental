@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A cinematic partnership proposal from Legefilms for luxury car rentals in Albania." />
+  <title>Legefilms × Luxury Car Rentals Albania</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --turquoise: #4b8ea7;
+      --turquoise-dark: #246a82;
+      --turquoise-light: #9fd0df;
+      --ink: #102632;
+      --deep: #071821;
+      --muted: rgba(16, 38, 50, 0.66);
+      --line: rgba(75, 142, 167, 0.20);
+      --white: #ffffff;
+      --soft-white: #f8fbfb;
+      --shadow: 0 24px 70px rgba(16, 38, 50, 0.14);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img,
+    video {
+      display: block;
+      max-width: 100%;
+    }
+
+    .glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 560px;
+      height: 560px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 5;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(75, 142, 167, 0.14) 0%, rgba(75, 142, 167, 0) 68%);
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      will-change: transform;
+    }
+
+    .glow.active {
+      opacity: 1;
+    }
+
+    #nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 1.45rem 3rem;
+      background: transparent;
+      transition: background 0.35s ease, box-shadow 0.35s ease, padding 0.35s ease;
+    }
+
+    #nav.scrolled {
+      padding: 1rem 3rem;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 1px 0 var(--line);
+    }
+
+    .nav-logo,
+    .nav-link {
+      font-size: 0.62rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.9);
+      transition: color 0.35s ease, border-color 0.35s ease, opacity 0.35s ease;
+    }
+
+    #nav.scrolled .nav-logo,
+    #nav.scrolled .nav-link {
+      color: var(--turquoise-dark);
+    }
+
+    .nav-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65em;
+      white-space: nowrap;
+    }
+
+    .nav-x {
+      opacity: 0.45;
+    }
+
+    .nav-link {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      padding-bottom: 3px;
+    }
+
+    #nav.scrolled .nav-link {
+      border-color: rgba(75, 142, 167, 0.35);
+    }
+
+    .nav-link:hover,
+    .nav-logo:hover {
+      opacity: 0.7;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 720px;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--deep);
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(to bottom, rgba(7, 24, 33, 0.22), rgba(7, 24, 33, 0.52) 56%, rgba(7, 24, 33, 0.82)),
+        radial-gradient(circle at 50% 42%, rgba(75, 142, 167, 0.22), transparent 46%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1080px;
+      padding: 0 2rem;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: block;
+      margin-bottom: 1.4rem;
+      font-size: 0.58rem;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: var(--turquoise);
+      font-weight: 500;
+    }
+
+    .hero .eyebrow {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .hero-title {
+      margin-bottom: 1.4rem;
+      font-family: "Fraunces", serif;
+      font-size: clamp(2.8rem, 7vw, 7.3rem);
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      color: var(--white);
+    }
+
+    .hero-title span {
+      color: var(--turquoise-light);
+    }
+
+    .hero-location {
+      margin-bottom: 1.35rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .hero-subtext {
+      max-width: 760px;
+      margin: 0 auto 3rem;
+      font-size: 0.98rem;
+      line-height: 1.95;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .hero-actions,
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 1rem 2.35rem;
+      border-radius: 999px;
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--turquoise);
+      color: var(--white);
+      border: 1px solid var(--turquoise);
+    }
+
+    .btn-secondary {
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.48);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary:hover {
+      background: var(--turquoise-dark);
+      border-color: var(--turquoise-dark);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.84);
+    }
+
+    .scroll-cue {
+      position: absolute;
+      left: 50%;
+      bottom: 2.5rem;
+      z-index: 2;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.54rem;
+      letter-spacing: 0.36em;
+      text-transform: uppercase;
+    }
+
+    .section {
+      position: relative;
+      padding: 9rem 3rem;
+      background: var(--white);
+      overflow: hidden;
+    }
+
+    .section-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .section-heading {
+      max-width: 860px;
+      margin: 1.4rem 0 1.8rem;
+      font-family: "Fraunces", serif;
+      font-size: clamp(2.2rem, 4.8vw, 4.45rem);
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      color: var(--turquoise);
+    }
+
+    .section-copy {
+      max-width: 740px;
+      font-size: 0.98rem;
+      line-height: 2;
+      color: var(--muted);
+    }
+
+    .image-section {
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .image-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(90deg, rgba(7, 24, 33, 0.52), rgba(7, 24, 33, 0.26) 48%, rgba(7, 24, 33, 0.1));
+    }
+
+    .section--coast-bg {
+      background-image: url("coast.jpg");
+    }
+
+    .section--green-bg {
+      background-image: url("green.jpg");
+    }
+
+    .image-section .eyebrow,
+    .image-section .section-heading,
+    .image-section .section-copy,
+    .image-section .intro-body p {
+      color: var(--white);
+      text-shadow: 0 2px 24px rgba(7, 24, 33, 0.52);
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
+      align-items: center;
+      gap: clamp(2.5rem, 6vw, 5.6rem);
+    }
+
+    .profile-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      background: var(--soft-white);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+    }
+
+    .profile-card::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 42%;
+      background: linear-gradient(to top, rgba(16, 38, 50, 0.55), transparent);
+      pointer-events: none;
+    }
+
+    .profile-card img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+
+    .profile-label {
+      position: absolute;
+      left: 1.4rem;
+      right: 1.4rem;
+      bottom: 1.4rem;
+      z-index: 2;
+      color: var(--white);
+    }
+
+    .profile-label strong {
+      display: block;
+      margin-bottom: 0.35rem;
+      font-family: "Fraunces", serif;
+      font-size: 1.55rem;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    .profile-label span {
+      display: block;
+      font-size: 0.56rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    .intro-body {
+      max-width: 780px;
+    }
+
+    .intro-body p {
+      margin-bottom: 0.95rem;
+      font-family: "Inter", sans-serif;
+      font-size: clamp(0.95rem, 1.15vw, 1.05rem);
+      font-weight: 300;
+      letter-spacing: 0.01em;
+      line-height: 1.78;
+      color: rgba(255, 255, 255, 0.92);
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.24);
+    }
+
+    .intro-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .proposal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      margin-top: 4.2rem;
+      background: rgba(75, 142, 167, 0.20);
+      border: 1px solid rgba(75, 142, 167, 0.20);
+      box-shadow: var(--shadow);
+      border-radius: 30px;
+      overflow: hidden;
+    }
+
+    .proposal-card {
+      background: rgba(255, 255, 255, 0.93);
+      backdrop-filter: blur(10px);
+      padding: 3rem 2.6rem;
+    }
+
+    .proposal-card .eyebrow {
+      margin-bottom: 1.1rem;
+    }
+
+    .proposal-title {
+      margin-bottom: 1.3rem;
+      font-family: "Fraunces", serif;
+      font-size: 1.85rem;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--ink);
+    }
+
+    .proposal-list {
+      list-style: none;
+      display: grid;
+      gap: 0.95rem;
+    }
+
+    .proposal-list li {
+      position: relative;
+      padding-left: 1.35rem;
+      font-size: 0.86rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .proposal-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--turquoise);
+      font-weight: 600;
+    }
+
+    .points-grid,
+    .cards-grid,
+    .proof-grid {
+      display: grid;
+      gap: 1px;
+      margin-top: 4.2rem;
+      background: rgba(75, 142, 167, 0.20);
+      border: 1px solid rgba(75, 142, 167, 0.20);
+      box-shadow: var(--shadow);
+      border-radius: 30px;
+      overflow: hidden;
+    }
+
+    .points-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .cards-grid,
+    .proof-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .point-card,
+    .card,
+    .proof-link {
+      min-height: 100%;
+      background: rgba(255, 255, 255, 0.93);
+      backdrop-filter: blur(10px);
+      padding: 2.8rem 2.25rem;
+      transition: transform 0.35s ease, background 0.35s ease;
+    }
+
+    .point-card:hover,
+    .card:hover,
+    .proof-link:hover {
+      background: var(--white);
+      transform: translateY(-3px);
+    }
+
+    .point-index,
+    .card-number,
+    .proof-label {
+      display: block;
+      margin-bottom: 1.25rem;
+      font-size: 0.56rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--turquoise);
+      font-weight: 600;
+    }
+
+    .point-title,
+    .card-title,
+    .proof-title {
+      margin-bottom: 1rem;
+      font-family: "Fraunces", serif;
+      font-size: 1.36rem;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.28;
+      color: var(--ink);
+    }
+
+    .point-body,
+    .card-body,
+    .proof-copy {
+      font-size: 0.84rem;
+      line-height: 1.9;
+      color: var(--muted);
+    }
+
+
+
+    .work-section {
+      background: var(--white);
+    }
+
+    .work-section .section-heading {
+      color: var(--turquoise);
+    }
+
+    .work-gallery {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 4.2rem;
+    }
+
+    .work-photo {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      background: var(--soft-white);
+      box-shadow: 0 18px 48px rgba(16, 38, 50, 0.13);
+      aspect-ratio: 9 / 16;
+    }
+
+    .work-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s ease;
+    }
+
+    .work-photo:hover img {
+      transform: scale(1.045);
+    }
+
+    .work-note {
+      max-width: 720px;
+      margin-top: 1rem;
+      font-size: 0.78rem;
+      line-height: 1.8;
+      color: rgba(16, 38, 50, 0.48);
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 4.2rem;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: var(--white);
+    }
+
+    .metric {
+      padding: 3rem 2rem;
+      text-align: center;
+      border-right: 1px solid var(--line);
+    }
+
+    .metric:last-child {
+      border-right: 0;
+    }
+
+    .metric-value {
+      margin-bottom: 0.9rem;
+      font-family: "Fraunces", serif;
+      font-size: clamp(2.5rem, 4.6vw, 4rem);
+      line-height: 1;
+      color: var(--turquoise);
+    }
+
+    .metric-label {
+      display: block;
+      font-size: 0.6rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(16, 38, 50, 0.5);
+      font-weight: 500;
+    }
+
+    .proof-link {
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .proof-cta {
+      margin-top: 1.6rem;
+      display: inline-block;
+      font-size: 0.58rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--turquoise-dark);
+      font-weight: 600;
+    }
+
+    .offer-inner,
+    .cta-section {
+      text-align: center;
+    }
+
+    .offer-inner .section-heading,
+    .cta-section .section-heading {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .offer-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3.5rem;
+      max-width: 820px;
+      margin: 3.2rem auto 0;
+      padding: 3.4rem;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: var(--shadow);
+    }
+
+    .offer-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-right: 3.4rem;
+      border-right: 1px solid var(--line);
+    }
+
+    .offer-stat-value {
+      font-family: "Fraunces", serif;
+      font-size: 4.8rem;
+      line-height: 1;
+      color: var(--turquoise);
+    }
+
+    .offer-stat-label {
+      margin-top: 0.6rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(16, 38, 50, 0.5);
+      font-weight: 600;
+    }
+
+    .offer-detail {
+      max-width: 390px;
+      text-align: left;
+    }
+
+    .offer-detail p {
+      margin-bottom: 0.8rem;
+      font-size: 0.9rem;
+      line-height: 1.85;
+      color: var(--muted);
+    }
+
+    .offer-detail p:first-child {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .cta-section {
+      min-height: 680px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url("coast.jpg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .cta-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(to bottom, rgba(7, 24, 33, 0.58), rgba(7, 24, 33, 0.74)),
+        radial-gradient(circle at 50% 44%, rgba(75, 142, 167, 0.26), transparent 46%);
+    }
+
+    .cta-heading {
+      max-width: 900px;
+      margin: 2.5rem auto 1.7rem;
+      font-family: "Fraunces", serif;
+      font-size: clamp(2.5rem, 5.8vw, 5.4rem);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      text-shadow: 0 2px 24px rgba(7, 24, 33, 0.55);
+    }
+
+    .cta-heading span {
+      color: var(--turquoise-light);
+    }
+
+    .cta-sub {
+      max-width: 660px;
+      margin: 0 auto 3.2rem;
+      font-size: 0.9rem;
+      line-height: 1.9;
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      padding: 2.4rem 3rem;
+      background: var(--white);
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-brand,
+    .footer-links a,
+    .footer-copy {
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(16, 38, 50, 0.45);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-links a:hover {
+      color: var(--turquoise-dark);
+    }
+
+    .fade {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .fade {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .glow {
+        display: none;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .points-grid,
+      .cards-grid,
+      .proof-grid,
+      .metrics {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .proposal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .work-gallery {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 900px) {
+      .intro-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-card {
+        max-width: 320px;
+      }
+
+      .work-gallery {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      #nav {
+        padding: 1.35rem 1.5rem;
+      }
+
+      #nav.scrolled {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-logo,
+      .nav-link {
+        font-size: 0.54rem;
+        letter-spacing: 0.18em;
+      }
+
+      .section,
+      .image-section,
+      .cta-section {
+        padding: 6.5rem 1.55rem;
+      }
+
+      .hero {
+        min-height: 650px;
+      }
+
+      .work-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.85rem;
+      }
+
+      .offer-card {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2.4rem;
+      }
+
+      .offer-stat {
+        width: 100%;
+        padding-right: 0;
+        padding-bottom: 2rem;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .offer-detail {
+        text-align: center;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.4rem;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .points-grid,
+      .cards-grid,
+      .proof-grid,
+      .metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .metric {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .metric:last-child {
+        border-bottom: 0;
+      }
+
+      .proposal-card,
+      .point-card,
+      .card,
+      .proof-link {
+        padding: 2.25rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="glow" id="glow" aria-hidden="true"></div>
+
+  <nav id="nav">
+    <a href="#top" class="nav-logo">Legefilms <span class="nav-x">×</span> Luxury Car Rentals Albania</a>
+    <a href="#proposal" class="nav-link">The Partnership</a>
+  </nav>
+
+  <!--
+    Suggested assets to place beside this index.html:
+    hero.mp4 or hero0.mp4 — hero video
+    coast.jpg — coastline / Riviera background
+    green.jpg — road / Albania landscape background
+    pfp.jpg — Geri profile photo
+    car1.jpg through car10.jpg — vertical photos for the portfolio section
+  -->
+
+  <section class="hero" id="top" aria-label="Luxury car rentals Albania hero">
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="coast.jpg" aria-hidden="true">
+      <source src="hero.mp4" type="video/mp4" />
+      <source src="hero0.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-content" id="hero-parallax">
+      <span class="eyebrow fade">A Cinematic Automotive Proposal</span>
+      <h1 class="hero-title fade">Luxury Cars, <span>Filmed Through Albania</span></h1>
+      <p class="hero-location fade">Albanian Riviera · Coastal Roads · Albanian Alps</p>
+      <p class="hero-subtext fade">A premium content partnership for car rental brands that want their vehicles seen in the right locations, with the right atmosphere, by the right audience.</p>
+      <div class="hero-actions fade">
+        <a href="#proposal" class="btn-primary">View the Partnership</a>
+        <a href="#visual-work" class="btn-secondary">See the Work</a>
+      </div>
+    </div>
+    <span class="scroll-cue fade" aria-hidden="true">Scroll</span>
+  </section>
+
+  <section class="section image-section section--coast-bg" id="intro" aria-label="About the creator">
+    <div class="section-inner intro-grid">
+      <figure class="profile-card fade">
+        <img src="pfp.jpg" alt="Geri — Legefilms filmmaker and photographer" />
+        <figcaption class="profile-label">
+          <strong>Geri</strong>
+          <span>@legefilms</span>
+        </figcaption>
+      </figure>
+      <div>
+        <span class="eyebrow fade">From Albania</span>
+        <h2 class="section-heading fade">This Comes From Someone Who Knows the Roads, the Light, and the Feeling.</h2>
+        <div class="intro-body fade">
+          <p>Duke qenë nga Shqipëria, kjo histori vjen me një qasje tjetër. I njoh rrugët, ritmin, dritën dhe detajet e vogla që e bëjnë vendin të duket kinematik para se kamera të fillojë të regjistrojë.</p>
+          <p>Krijoj filma kinematikë që nuk tregojnë vetëm makinën, por ndjesinë e të qenit pas timonit — rrugën, pamjen, dritën, fundjavën dhe momentin kur dikush e imagjinon veten në atë përvojë.</p>
+          <p>Ndërsa Shqipëria po bëhet një nga destinacionet më të përfolura të Europës, brandet e makinave me qira kanë mundësinë të bëhen pjesë e kësaj historie në një mënyrë që ndihet e rafinuar, lokale dhe ndërkombëtare njëkohësisht.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section work-section" id="visual-work" aria-label="Vertical photo portfolio">
+    <div class="section-inner">
+      <span class="eyebrow fade">Visual Work</span>
+      <h2 class="section-heading fade">A quick look at my cinematic style.</h2>
+      <div class="work-gallery" aria-label="Ten vertical portfolio photos">
+        <figure class="work-photo fade"><img src="car1.jpg" alt="Vertical portfolio photo 1" loading="lazy" onerror="this.closest('.work-photo').style.display='none'" /></figure>
+        <figure class="work-photo fade"><img src="car2.jpg" alt="Vertical portfolio photo 2" loading="lazy" onerror="this.closest('.work-photo').style.display='none'" /></figure>
+        <figure class="work-photo fade"><img src="car3.jpg" alt="Vertical portfolio photo 3" loading="lazy" onerror="this.closest('.work-photo').style.display='none'" /></figure>
+        <figure class="work-photo fade"><img src="car4.jpg" alt="Vertical portfolio photo 4" loading="lazy" onerror="this.closest('.work-photo').style.display='none'" /></figure>
+        <figure class="work-photo fade"><img src="car5.jpg" alt="Vertical portfolio photo 5" loading="lazy" onerror="this.closest('.work-photo').style.display='none'" /></figure>
+        <figure class="work-photo fade"><img src="car6.jpg" alt="Vertical portfolio photo 6" loading="lazy" onerror="this.closest('.work-photo').style.display='none'" /></figure>
+        <figure class="work-photo fade"><img src="car7.jpg" alt="Vertical portfolio photo 7" loading="lazy" onerror="this.closest('.work-photo').style.display='none'" /></figure>
+        <figure class="work-photo fade"><img src="car8.jpg" alt="Vertical portfolio photo 8" loading="lazy" onerror="this.closest('.work-photo').style.display='none'" /></figure>
+        <figure class="work-photo fade"><img src="car9.jpg" alt="Vertical portfolio photo 9" loading="lazy" onerror="this.closest('.work-photo').style.display='none'" /></figure>
+        <figure class="work-photo fade"><img src="car10.jpg" alt="Vertical portfolio photo 10" loading="lazy" onerror="this.closest('.work-photo').style.display='none'" /></figure>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section image-section section--green-bg" id="proposal" aria-label="Proposal exchange">
+    <div class="section-inner">
+      <span class="eyebrow fade">The Partnership</span>
+      <h2 class="section-heading fade">You provide the vehicle. I create the story that sells the experience.</h2>
+      <p class="section-copy fade">This is a focused 2–3 day content collaboration in Albania, built for car rental companies looking for premium social content, stronger brand presence, and a cinematic way to make one vehicle feel like the car of the trip.</p>
+
+      <div class="proposal-grid">
+        <article class="proposal-card fade">
+          <span class="eyebrow">You Provide</span>
+          <h3 class="proposal-title">One premium vehicle for the campaign.</h3>
+          <ul class="proposal-list">
+            <li>One luxury, convertible, SUV, performance, or standout rental vehicle for 2–3 days in Albania.</li>
+            <li>Possible routes: Green Coast, Dhërmi, Theth, Vlorë, and more.</li>
+            <li>Pickup, delivery, insurance, timing, route, and exact logistics can be confirmed together.</li>
+            <li>The goal is the right vehicle, the right light, and a route that makes the brand feel aspirational.</li>
+          </ul>
+        </article>
+
+        <article class="proposal-card fade">
+          <span class="eyebrow">You Receive</span>
+          <h3 class="proposal-title">A cinematic content package.</h3>
+          <ul class="proposal-list">
+            <li>2 cinematic reels posted on my account and collaboration-posted with your brand.</li>
+            <li>1 curated photo carousel built around the vehicle and Albania locations.</li>
+            <li>10–20 edited photos of the car for your own marketing channels.</li>
+            <li>5–10 short video postcards your brand can reuse for stories, ads, website, or social media.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="metrics fade" aria-label="Audience and deliverables">
+        <div class="metric"><div class="metric-value">100K</div><span class="metric-label">followers across platforms</span></div>
+        <div class="metric"><div class="metric-value">13%</div><span class="metric-label">engagement rate</span></div>
+        <div class="metric"><div class="metric-value">2</div><span class="metric-label">cinematic reels</span></div>
+        <div class="metric"><div class="metric-value">20+</div><span class="metric-label">usable assets</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section image-section section--coast-bg" id="why" aria-label="Why Albania automotive content">
+    <div class="section-inner">
+      <span class="eyebrow fade">Why Albania</span>
+      <h2 class="section-heading fade">Albania’s travel moment needs vehicles that feel part of the story.</h2>
+      <p class="section-copy fade">The car is not only transportation. For the right traveler, it becomes the freedom of the route, the view after the turn, the coastal road, the weekend plan, and the memory they want to recreate.</p>
+
+      <div class="points-grid">
+        <article class="point-card fade">
+          <span class="point-index">01</span>
+          <h3 class="point-title">The Country Is the Campaign</h3>
+          <p class="point-body">Albania already gives the visual setting: mountains, coastline, city energy, beaches, stone roads, and dramatic light. The right vehicle becomes part of that frame.</p>
+        </article>
+
+        <article class="point-card fade">
+          <span class="point-index">02</span>
+          <h3 class="point-title">Premium Rentals Need Emotion</h3>
+          <p class="point-body">People do not only rent a luxury car because of specs. They rent the feeling: arrival, freedom, status, movement, and a weekend that looks worth remembering.</p>
+        </article>
+
+        <article class="point-card fade">
+          <span class="point-index">03</span>
+          <h3 class="point-title">Local Trust, International Craft</h3>
+          <p class="point-body">Being Albanian brings instinct and access, while the cinematic style gives the content the polish needed to travel internationally and feel like a real campaign.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="deliverables" aria-label="Deliverables">
+    <div class="section-inner">
+      <span class="eyebrow fade">Deliverables</span>
+      <h2 class="section-heading fade">What your rental brand receives.</h2>
+      <div class="cards-grid">
+        <article class="card fade">
+          <span class="card-number">01</span>
+          <h3 class="card-title">2 Cinematic Reels</h3>
+          <p class="card-body">Short-form videos edited with premium pacing, strong location choices, and a clear feeling of the drive.</p>
+        </article>
+
+        <article class="card fade">
+          <span class="card-number">02</span>
+          <h3 class="card-title">1 Photo Carousel</h3>
+          <p class="card-body">A curated post built around the vehicle, the route, and the emotional reason someone would want to rent it.</p>
+        </article>
+
+        <article class="card fade">
+          <span class="card-number">03</span>
+          <h3 class="card-title">10–20 Edited Photos</h3>
+          <p class="card-body">Clean, cinematic assets your team can use across Instagram, website, ads, listings, and future campaigns.</p>
+        </article>
+
+        <article class="card fade">
+          <span class="card-number">04</span>
+          <h3 class="card-title">5–10 Video Postcards</h3>
+          <p class="card-body">Short clips for stories, reels, ads, and brand pages — designed to make the vehicle feel easy to imagine and hard to forget.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section image-section section--green-bg" id="value" aria-label="What this creates">
+    <div class="section-inner">
+      <span class="eyebrow fade">What This Creates</span>
+      <h2 class="section-heading fade">Content that sells the feeling of the drive.</h2>
+      <p class="section-copy fade">The goal is not just to show the vehicle. It is to make the viewer imagine the keys, the road, the coastline, the city arrival, the stop for coffee, and the moment they choose your brand for the trip.</p>
+
+      <div class="points-grid">
+        <article class="point-card fade">
+          <span class="point-index">01</span>
+          <h3 class="point-title">Aspirational, Not Generic</h3>
+          <p class="point-body">The content feels like a premium travel campaign, not a standard car listing or basic rental ad.</p>
+        </article>
+
+        <article class="point-card fade">
+          <span class="point-index">02</span>
+          <h3 class="point-title">Reusable Brand Assets</h3>
+          <p class="point-body">Your team receives photos and short clips that can continue working long after the collaboration weekend ends.</p>
+        </article>
+
+        <article class="point-card fade">
+          <span class="point-index">03</span>
+          <h3 class="point-title">A Clear Booking Feeling</h3>
+          <p class="point-body">The viewer should not just like the video. They should think: this is the car I want for Albania.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="proof" aria-label="Proof of style">
+    <div class="section-inner">
+      <span class="eyebrow fade">Proof of Style</span>
+      <h2 class="section-heading fade">A visual style made for premium partners.</h2>
+      <p class="section-copy fade">Past work is shown as clean links instead of embedded Instagram cards, so the focus stays on the films — not likes, comments, or the social interface.</p>
+
+      <div class="proof-grid">
+        <a class="proof-link fade" href="https://www.instagram.com/p/DW94rgyEpYD/" target="_blank" rel="noopener noreferrer">
+          <span class="proof-label">Reel 01</span>
+          <span class="proof-title">Cinematic pacing</span>
+          <span class="proof-copy">A clean example of short-form direction and premium visual rhythm.</span>
+          <span class="proof-cta">Open Work</span>
+        </a>
+
+        <a class="proof-link fade" href="https://www.instagram.com/reel/DTd2ONpiLo2/" target="_blank" rel="noopener noreferrer">
+          <span class="proof-label">Reel 02</span>
+          <span class="proof-title">Location-led story</span>
+          <span class="proof-copy">Content built around place, movement, and atmosphere.</span>
+          <span class="proof-cta">Open Work</span>
+        </a>
+
+        <a class="proof-link fade" href="https://www.instagram.com/reel/DSm1EkLCAym/" target="_blank" rel="noopener noreferrer">
+          <span class="proof-label">Reel 03</span>
+          <span class="proof-title">Premium atmosphere</span>
+          <span class="proof-copy">Visuals shaped to feel aspirational, polished, and shareable.</span>
+          <span class="proof-cta">Open Work</span>
+        </a>
+
+        <a class="proof-link fade" href="https://www.instagram.com/reel/DShnRKyCEOe/" target="_blank" rel="noopener noreferrer">
+          <span class="proof-label">Reel 04</span>
+          <span class="proof-title">Short-form direction</span>
+          <span class="proof-copy">A fast, cinematic approach made for modern social attention.</span>
+          <span class="proof-cta">Open Work</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section image-section section--coast-bg" id="offer" aria-label="The ask">
+    <div class="section-inner offer-inner">
+      <span class="eyebrow fade">The Ask</span>
+      <h2 class="section-heading fade">2–3 Days, One Vehicle, Full Creative Access.</h2>
+      <div class="offer-card fade">
+        <div class="offer-stat">
+          <span class="offer-stat-value">3</span>
+          <span class="offer-stat-label">Days</span>
+        </div>
+        <div class="offer-detail">
+          <p>Vehicle access for a focused cinematic campaign in Albania.</p>
+          <p>Dates, pickup location, insurance, route, and exact creative plan can be confirmed together. The goal is the right car, the right locations, and the right light.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section" id="contact" aria-label="Start the conversation">
+    <div class="section-inner">
+      <span class="eyebrow fade">Start the Conversation</span>
+      <h2 class="cta-heading fade">Let’s make one vehicle feel like <span>the car of the Albania trip.</span></h2>
+      <p class="cta-sub fade">You provide the vehicle. I create the content package, social exposure, and cinematic proof-of-concept around it.</p>
+      <div class="cta-actions fade">
+        <a href="mailto:geri@legefilms.com" class="btn-primary">geri@legefilms.com</a>
+        <a href="https://instagram.com/legefilms" class="btn-secondary" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-brand">Legefilms</span>
+    <div class="footer-links">
+      <a href="mailto:geri@legefilms.com">geri@legefilms.com</a>
+      <a href="https://instagram.com/legefilms" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </div>
+    <span class="footer-copy">&copy; 2026</span>
+  </footer>
+
+  <script>
+    (function () {
+      var navEl = document.getElementById('nav');
+      window.addEventListener('scroll', function () {
+        navEl.classList.toggle('scrolled', window.scrollY > 80);
+      }, { passive: true });
+
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduced) {
+        document.querySelectorAll('.fade').forEach(function (el) { el.classList.add('visible'); });
+        return;
+      }
+
+      document.querySelectorAll('.hero .fade').forEach(function (el, i) {
+        setTimeout(function () { el.classList.add('visible'); }, 480 + i * 160);
+      });
+
+      var fadeObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('visible');
+          fadeObs.unobserve(entry.target);
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll(':not(.hero) .fade').forEach(function (el) { fadeObs.observe(el); });
+
+      var glow = document.getElementById('glow');
+      if (window.matchMedia('(hover: hover)').matches) {
+        var gx = window.innerWidth / 2;
+        var gy = window.innerHeight / 2;
+        var cx = gx;
+        var cy = gy;
+        var raf = null;
+
+        window.addEventListener('mousemove', function (e) {
+          gx = e.clientX;
+          gy = e.clientY;
+          glow.classList.add('active');
+          if (!raf) raf = requestAnimationFrame(tick);
+        });
+
+        function tick() {
+          cx += (gx - cx) * 0.12;
+          cy += (gy - cy) * 0.12;
+          glow.style.transform = 'translate(' + cx + 'px,' + cy + 'px)';
+          if (Math.abs(gx - cx) > 0.5 || Math.abs(gy - cy) > 0.5) {
+            raf = requestAnimationFrame(tick);
+          } else {
+            raf = null;
+          }
+        }
+      }
+
+      var heroParallax = document.getElementById('hero-parallax');
+      var heroSection = document.getElementById('top');
+      window.addEventListener('scroll', function () {
+        var y = window.scrollY;
+        var heroHeight = heroSection.offsetHeight;
+        if (y > heroHeight) return;
+        heroParallax.style.transform = 'translateY(' + (y * 0.22) + 'px)';
+        heroParallax.style.opacity = String(Math.max(0, 1 - y / (heroHeight * 0.82)));
+      }, { passive: true });
+    }());
+  </script>
+</body>
+</html>
